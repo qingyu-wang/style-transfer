@@ -3,12 +3,16 @@
 # Local Ignore
 .DS_Store
 .vscode
-log/
-tmp/
-test/
-logs/
-logs_bk/
+
+archive/
 experiments/
+log/
+logs_bk/
+logs/
+saved_models/
+test/
+tmp_*/
+tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
