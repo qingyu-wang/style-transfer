@@ -4,7 +4,7 @@
 .DS_Store
 .vscode
 
-src/models/
+models/
 
 archive/
 experiments/
