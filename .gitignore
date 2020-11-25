@@ -4,7 +4,7 @@
 .DS_Store
 .vscode
 
-models/
+*.pth
 
 archive/
 experiments/

@@ -9,6 +9,8 @@ from torchvision import transforms
 class PreProcessor(object):
 
     def __init__(self, ctype="BGR", div=1, mean=[103.939, 116.779, 123.68], std=[1, 1, 1], size=512, init_mode="random"):
+        assert ctype in ["BGR", "RGB"]
+        assert init_mode in ["random", "content", "style"]
         if ctype == "BGR":
             self.transformer = transforms.Compose([
                 transforms.Resize(size),
@@ -23,7 +25,6 @@ class PreProcessor(object):
                 transforms.Normalize(mean=mean, std=std)
             ])
         self.init_mode = init_mode
-        assert self.init_mode in ["random", "content", "style"]
 
     def __call__(self, content_image_path, style_image_path):
         # Content
