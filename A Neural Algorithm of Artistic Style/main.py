@@ -212,22 +212,6 @@ python -m main
 
     # NOTE Caffe Model & Adam
     # parser = argparse.ArgumentParser()
-    # parser.add_argument("--content_image_paths", type=str, nargs="+", default=[
-    #     "./src/images/content/sailboat.jpg",
-    #     "./src/images/content/cornell.jpg",
-    #     "./src/images/content/lenna.jpg",
-    #     "./src/images/content/brad_pitt.jpg",
-    #     "./src/images/content/golden_bridge.jpg",
-    #     "./src/images/content/janelle_monae.jpg",
-    # ])
-    # parser.add_argument("--style_image_paths", type=str, nargs="+", default=[
-    #     "./src/images/style/sketch.jpg",
-    #     "./src/images/style/woman_with_hat_matisse.jpg",
-    #     "./src/images/style/picasso_seated_nude_hr.jpg",
-    #     "./src/images/style/picasso_self_portrait.jpg",
-    #     "./src/images/style/la_muse.jpg",
-    #     "./src/images/style/starry_night.jpg",
-    # ])
     # parser.add_argument("--pretrained_path", type=str, default="./src/models/vgg19-d01eb7cb-caffe.pth")
     # parser.add_argument("--ctype", type=str, default="BGR")
     # parser.add_argument("--div", type=float, default=1)
@@ -242,11 +226,7 @@ python -m main
     # parser.add_argument("--content_weight", type=float, default=5)
     # parser.add_argument("--style_weight", type=float, default=20)
     # parser.add_argument("--tv_weight", type=float, default=0.001)
-    # parser.add_argument("--save_dir", type=str, default="./tmp/images_caffe_adam")
     # parser.add_argument("--preserve_color", action="store_true")
-
-    # NOTE Caffe Model & LBFGS
-    # parser = argparse.ArgumentParser()
     # parser.add_argument("--content_image_paths", type=str, nargs="+", default=[
     #     "./src/images/content/sailboat.jpg",
     #     "./src/images/content/cornell.jpg",
@@ -263,6 +243,10 @@ python -m main
     #     "./src/images/style/la_muse.jpg",
     #     "./src/images/style/starry_night.jpg",
     # ])
+    # parser.add_argument("--save_dir", type=str, default="./tmp/images_caffe_adam")
+
+    # NOTE Caffe Model & LBFGS
+    # parser = argparse.ArgumentParser()
     # parser.add_argument("--pretrained_path", type=str, default="./src/models/vgg19-d01eb7cb-caffe.pth")
     # parser.add_argument("--ctype", type=str, default="BGR")
     # parser.add_argument("--div", type=float, default=1)
@@ -277,36 +261,7 @@ python -m main
     # parser.add_argument("--content_weight", type=float, default=5)
     # parser.add_argument("--style_weight", type=float, default=20)
     # parser.add_argument("--tv_weight", type=float, default=0.001)
-    # parser.add_argument("--save_dir", type=str, default="./tmp/images_caffe_lbfgs")
     # parser.add_argument("--preserve_color", action="store_true")
-
-    # NOTE Caffe Model & LBFGS (Face)
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--content_image_paths", type=str, nargs="+", default=[
-        "./tmp/test_c.jpg"
-    ])
-    parser.add_argument("--style_image_paths", type=str, nargs="+", default=[
-        "./tmp/test_s.jpg",
-    ])
-    parser.add_argument("--pretrained_path", type=str, default="./src/models/vgg19-d01eb7cb-caffe.pth")
-    parser.add_argument("--ctype", type=str, default="BGR")
-    parser.add_argument("--div", type=float, default=1)
-    parser.add_argument("--mean", type=float, nargs="+", default=[103.939, 116.779, 123.68])
-    parser.add_argument("--std", type=float, nargs="+", default=[1, 1, 1])
-    parser.add_argument("--size", type=float, nargs="+", default=[1024, 1024])
-    parser.add_argument("--optim", type=str, default="LBFGS")
-    parser.add_argument("--init_mode", type=str, default="content")
-    parser.add_argument("--lr", type=float, default=None)
-    parser.add_argument("--num_iters", type=int, default=600)
-    parser.add_argument("--num_iters_save", type=int, default=5)
-    parser.add_argument("--content_weight", type=float, default=5)
-    parser.add_argument("--style_weight", type=float, default=10000)
-    parser.add_argument("--tv_weight", type=float, default=0.001)
-    parser.add_argument("--save_dir", type=str, default="./tmp/test")
-    parser.add_argument("--preserve_color", action="store_true")
-
-    # NOTE PyToch Model & Adam [Not Converge Well]
-    # parser = argparse.ArgumentParser()
     # parser.add_argument("--content_image_paths", type=str, nargs="+", default=[
     #     "./src/images/content/sailboat.jpg",
     #     "./src/images/content/cornell.jpg",
@@ -323,6 +278,35 @@ python -m main
     #     "./src/images/style/la_muse.jpg",
     #     "./src/images/style/starry_night.jpg",
     # ])
+    # parser.add_argument("--save_dir", type=str, default="./tmp/images_caffe_lbfgs")
+
+    # NOTE Caffe Model & LBFGS (Face)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--pretrained_path", type=str, default="./src/models/vgg19-d01eb7cb-caffe.pth")
+    parser.add_argument("--ctype", type=str, default="BGR")
+    parser.add_argument("--div", type=float, default=1)
+    parser.add_argument("--mean", type=float, nargs="+", default=[103.939, 116.779, 123.68])
+    parser.add_argument("--std", type=float, nargs="+", default=[1, 1, 1])
+    parser.add_argument("--size", type=float, nargs="+", default=[1024, 1024])
+    parser.add_argument("--optim", type=str, default="LBFGS")
+    parser.add_argument("--init_mode", type=str, default="content")
+    parser.add_argument("--lr", type=float, default=None)
+    parser.add_argument("--num_iters", type=int, default=600)
+    parser.add_argument("--num_iters_save", type=int, default=5)
+    parser.add_argument("--content_weight", type=float, default=5)
+    parser.add_argument("--style_weight", type=float, default=10000)
+    parser.add_argument("--tv_weight", type=float, default=0.001)
+    parser.add_argument("--preserve_color", action="store_true")
+    parser.add_argument("--content_image_paths", type=str, nargs="+", default=[
+        "./tmp/test_c.jpg"
+    ])
+    parser.add_argument("--style_image_paths", type=str, nargs="+", default=[
+        "./tmp/test_s.jpg",
+    ])
+    parser.add_argument("--save_dir", type=str, default="./tmp/test")
+
+    # NOTE PyToch Model & Adam [Not Converge Well]
+    # parser = argparse.ArgumentParser()
     # parser.add_argument("--pretrained_path", type=str, default="./src/models/vgg19-dcbb9e9d-pytorch.pth")
     # parser.add_argument("--ctype", type=str, default="RGB")
     # parser.add_argument("--div", type=float, default=255)
@@ -330,12 +314,30 @@ python -m main
     # parser.add_argument("--std", type=float, nargs="+", default=[0.229, 0.224, 0.225])
     # parser.add_argument("--size", type=float, nargs="+", default=[512, 512])
     # parser.add_argument("--optim", type=str, default="Adam")
+    # parser.add_argument("--init_mode", type=str, default="random")
     # parser.add_argument("--lr", type=float, default=10)
     # parser.add_argument("--num_iters", type=int, default=500)
     # parser.add_argument("--num_iters_save", type=int, default=100)
     # parser.add_argument("--content_weight", type=float, default=5)
     # parser.add_argument("--style_weight", type=float, default=20)
     # parser.add_argument("--tv_weight", type=float, default=0.001)
+    # parser.add_argument("--preserve_color", action="store_true")
+    # parser.add_argument("--content_image_paths", type=str, nargs="+", default=[
+    #     "./src/images/content/sailboat.jpg",
+    #     "./src/images/content/cornell.jpg",
+    #     "./src/images/content/lenna.jpg",
+    #     "./src/images/content/brad_pitt.jpg",
+    #     "./src/images/content/golden_bridge.jpg",
+    #     "./src/images/content/janelle_monae.jpg",
+    # ])
+    # parser.add_argument("--style_image_paths", type=str, nargs="+", default=[
+    #     "./src/images/style/sketch.jpg",
+    #     "./src/images/style/woman_with_hat_matisse.jpg",
+    #     "./src/images/style/picasso_seated_nude_hr.jpg",
+    #     "./src/images/style/picasso_self_portrait.jpg",
+    #     "./src/images/style/la_muse.jpg",
+    #     "./src/images/style/starry_night.jpg",
+    # ])
     # parser.add_argument("--save_dir", type=str, default="./tmp/images_pytorch_adam")
 
     args = parser.parse_args()
